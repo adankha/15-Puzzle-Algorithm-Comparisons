@@ -6,3 +6,5 @@ Iterative Deepending DFS (IDDFS) (Both done recursively and iteratively)
 A* Using the Manhattan Heuristic
 
 Each search has its own file in which I take a slightly different approach in code structure.
+
+The program was created using Python 3.6
