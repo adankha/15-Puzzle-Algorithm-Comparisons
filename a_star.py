@@ -108,8 +108,12 @@ def check_hp(b, parent, ph, pq, visited):
     :param ph: Parent heuristic value
     :return: Nothing
     """
+    global HEURISTIC
 
-    h = b.manhattan_heuristic()
+    if HEURISTIC == 'M':
+        h = b.manhattan_heuristic()
+    else:
+        h = b.displaced_tiles_heuristic()
     child = ' '.join(str(e) for e in b.board_as_string_list)
 
     if child not in visited.keys():
@@ -123,6 +127,7 @@ def check_hp(b, parent, ph, pq, visited):
 
 
 def get_path(board, visited):
+    global HEURISTIC
 
     if board == 'NULL':
         return
@@ -131,19 +136,30 @@ def get_path(board, visited):
         b = Board(board.split(' '))
         b.print_board()
         print('')
-        print('Heuristic Value: ' + str(b.manhattan_heuristic()) + '\n')
+        if HEURISTIC == 'M':
+            heur = str(b.manhattan_heuristic())
+        else:
+            heur = str(b.displaced_tiles_heuristic())
+        print('Heuristic Value: ' + heur + '\n')
 
 
-def manhattan_astar(start_board):
+def a_star(start_board, heuristic):
     """
     :param start_board: Start board holds the current board
+    :param heuristic: Flag to tell if manhattan or displaced heuristic
     :return: Returns true or false (if a solution was found within 15 seconds
     """
     pq = []
     visited = {}
+    global HEURISTIC
+
+    HEURISTIC = heuristic
 
     b = Board(start_board)
-    h = b.manhattan_heuristic()
+    if HEURISTIC == 'M':
+        h = b.manhattan_heuristic()
+    else:
+        h = b.displaced_tiles_heuristic()
     cb_as_list = b.board_as_string_list
     visited[' '.join(str(e) for e in cb_as_list)] = [h, h, 'NULL']
 
@@ -165,7 +181,13 @@ def manhattan_astar(start_board):
         # node[0] == 0 or (use for next project, put that or cond in if cond
         if node[1] == GOAL_STATE_15_AS_ILIST or node[1] == GOAL_STATE_15_AS_SLIST:
             get_path(GOAL_STATE_15, visited)
-            print('*** Solution Found Using Manhattan Herustic A*!     ***')
+
+            if HEURISTIC == 'M':
+                heur = 'Manhattan Heuristic'
+            else:
+                heur = 'Displaced Tiles Heuristic'
+
+            print('*** Solution Found Using ', heur, ' A*!     ***')
             print('*** The Solution Path has been printed out for you. ***')
 
             process = psutil.Process(os.getpid())
@@ -175,9 +197,10 @@ def manhattan_astar(start_board):
             globals.memory_bfs = memory_bfs
 
             print('*** Heuristic Values are printed for each state.    ***'
-                  '\n*** Heuristic used: Manhattan Distance              ***'
+                  '\n*** Heuristic used: ', heur, '              ***'
                   '\n*** Search Algorithm Used: Breadth First Search     ***')
             print('BFS Size Tree Reached: ', curr_max / 1048576)
+            print('Using getsizeof on hashmap, the size is: ', getsizeof(visited), ' bytes.')
             visited.clear()
             return True
 

@@ -43,6 +43,25 @@ class Board(object):
 
         return total_heuristic
 
+    def displaced_tiles_heuristic(self):
+        total_heuristic = 0
+        for row in range(0, EDGE_LENGTH):
+            for col in range(0, EDGE_LENGTH):
+                if self.current_board[row][col] != 0:
+                    target_x = (self.current_board[row][col] - 1) / EDGE_LENGTH
+                    target_y = (self.current_board[row][col] - 1) % EDGE_LENGTH
+                else:
+                    continue
+                #print('Num: ', self.current_board[row][col], 'row: ', row, 'col', col, 'targetx:', target_x, 'targety: ', target_y )
+                #self.print_board()
+                if row != int(target_x) or col != int(target_y):
+                   # print('i come here')
+                    total_heuristic += 1
+
+       # print('Num of displaced tiles:', total_heuristic)
+
+        return total_heuristic
+
 
 def transform_to_matrix(bas):
     """

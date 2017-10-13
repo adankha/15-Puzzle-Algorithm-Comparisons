@@ -9,7 +9,7 @@ from iddfs import iddfs, nr_iddfs
 from random import shuffle
 from board import *
 from bfs import bfs
-from a_star import manhattan_astar
+from a_star import a_star
 import globals
 import psutil
 import time
@@ -131,14 +131,20 @@ def main():
     nr_iddfs_time = time.time() - nr_iddfs_start_time
     gc.collect()
 
+    # Manhattan Heuristic used with A*
     manhattan_astar_start_time = time.time()
-    manhattan_astar(users_board)
+    a_star(users_board, 'M')
     manhattan_astar_time = time.time() - manhattan_astar_start_time
+    gc.collect()
+
+    # Displaced Tiles Heuristic used with A*
+    displaced_astar_start_time = time.time()
+    a_star(users_board, 'D')
+    displaced_astar_time = time.time() - displaced_astar_start_time
     gc.collect()
 
     # 1 2 3 4 5 6 7 8 13 9 12 15 0 11 10 14
     # 1 2 3 4 5 6 7 8 0 9 10 15 13 14 12 11
-    print('Scroll up to see bytes/megabytes used for each search.')
 
     print('\n------------')
     print('Result of Time Elapsed:')
@@ -147,15 +153,20 @@ def main():
     print('IDDFS Time Elapsed: ', iddfs_time * 1000, 'ms')
     print('NR_IDDFS Time Elapsed: ', nr_iddfs_time * 1000, 'ms')
     print('Manhattan A* Time Elapsed: ', manhattan_astar_time * 1000, 'ms')
+    print('Displaced A* Time Elapsed: ', displaced_astar_time * 1000, 'ms')
     print('------------')
     print('Results on Memory Usage:')
     print('------------')
-    print("Memory used in main, just before any search:                             | ", globals.memory_main, ' MB')
-    print("Memory used just before returning in bfs search:                         | ", globals.memory_bfs, ' MB')
-    print("Memory used just before returning in recursive iddfs search:             | ", globals.memory_iddfs, ' MB')
-    print("Memory used just before returning in Non-recursive iddfs search:         | ", globals.memory_nr_iddfs, ' MB')
-    print("Memory used just before returning in Non-recursive Manhattan A* search:  | ", globals.memory_manhattan_astar , ' MB')
+    print("Memory used in main, just before any search:                      | ", globals.memory_main, ' MB')
+    print("Memory used just before returning in bfs search:                  | ", globals.memory_bfs, ' MB')
+    print("Memory used just before returning in recursive iddfs search:      | ", globals.memory_iddfs, ' MB')
+    print("Memory used just before returning in Non-recursive iddfs search:  | ", globals.memory_nr_iddfs, ' MB')
+    print("Memory used just before returning in BFS Manhattan A* search:     | ", globals.memory_manhattan_astar, ' MB')
+    print("Memory used just before returning in BFS Displaced A* search:     | ", globals.memory_displaced_astar, ' MB')
     print('------------')
+    print('Note: Using the TAs suggestion on memory usage doesn\'t really demonstrate a good way when using A*')
+    print('I have printed out the sizeof (using getsizeof) of the hashmap for each heuristic. Scroll up to see result.')
+    print('You will find that the manhattan heuristic visits less nodes (less bytes printed)')
 
 
 if __name__ == "__main__":
