@@ -3,10 +3,7 @@
 
 class Node:
 
-    current_board = [[]]
-    parent_board = [[]]
-    heuristic_value = 0
-    total_cost = 0
+    __slots__ = ['current_board', 'parent_board', 'heuristic_value', 'total_cost']
 
     def __init__(self, cb, pb, hv, tc):
         """

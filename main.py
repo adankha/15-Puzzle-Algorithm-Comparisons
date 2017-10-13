@@ -9,6 +9,7 @@ from iddfs import iddfs, nr_iddfs
 from random import shuffle
 from board import *
 from bfs import bfs
+from a_star import manhattan_astar
 import globals
 import psutil
 import time
@@ -89,6 +90,7 @@ def main():
     """
 
     user_input = intro()
+    users_board = -999
     is_valid = check_input(user_input)
     if is_valid:
         if user_input == 'r' or user_input == 'R':
@@ -129,6 +131,11 @@ def main():
     nr_iddfs_time = time.time() - nr_iddfs_start_time
     gc.collect()
 
+    manhattan_astar_start_time = time.time()
+    manhattan_astar(users_board)
+    manhattan_astar_time = time.time() - manhattan_astar_start_time
+    gc.collect()
+
     # 1 2 3 4 5 6 7 8 13 9 12 15 0 11 10 14
     # 1 2 3 4 5 6 7 8 0 9 10 15 13 14 12 11
     print('Scroll up to see bytes/megabytes used for each search.')
@@ -139,13 +146,15 @@ def main():
     print('BFS Time Elapsed: ', bfs_time * 1000, 'ms')
     print('IDDFS Time Elapsed: ', iddfs_time * 1000, 'ms')
     print('NR_IDDFS Time Elapsed: ', nr_iddfs_time * 1000, 'ms')
+    print('Manhattan A* Time Elapsed: ', manhattan_astar_time * 1000, 'ms')
     print('------------')
     print('Results on Memory Usage:')
     print('------------')
-    print("Memory used in main, just before any search:                         | ", globals.memory_main, ' MB')
-    print("Memory used just before returning in bfs search:                     | ", globals.memory_bfs, ' MB')
-    print("Memory used just before returning in recursive iddfs search:         | ", globals.memory_iddfs, ' MB')
-    print("Memory used just before returning in Non-recursive iddfs search:     | ", globals.memory_nr_iddfs, ' MB')
+    print("Memory used in main, just before any search:                             | ", globals.memory_main, ' MB')
+    print("Memory used just before returning in bfs search:                         | ", globals.memory_bfs, ' MB')
+    print("Memory used just before returning in recursive iddfs search:             | ", globals.memory_iddfs, ' MB')
+    print("Memory used just before returning in Non-recursive iddfs search:         | ", globals.memory_nr_iddfs, ' MB')
+    print("Memory used just before returning in Non-recursive Manhattan A* search:  | ", globals.memory_manhattan_astar , ' MB')
     print('------------')
 
 

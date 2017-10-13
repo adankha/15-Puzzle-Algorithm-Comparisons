@@ -26,7 +26,7 @@ class Board(object):
         for row in self.current_board:
             print(row)
 
-    def board_heuristic(self):
+    def manhattan_heuristic(self):
         """
         :return: Computes the heuristic of the given board.
         """
