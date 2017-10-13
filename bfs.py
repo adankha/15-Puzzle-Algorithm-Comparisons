@@ -234,9 +234,6 @@ def a_star(start_board, heuristic):
             else:
                 heur = 'Displaced Tiles Heuristic'
 
-
-
-
             print('*** Solution Found Using ', heur, ' A*!     ***')
             print('*** The Solution Path has been printed out for you. ***')
 

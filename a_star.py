@@ -1,4 +1,4 @@
-from copy import copy, deepcopy
+from copy import deepcopy
 from sys import getsizeof
 from board import *
 import globals
@@ -32,16 +32,6 @@ def move_up(parent_h, parent_board, curr_board, z_coord, pq, visited):
 
 
 def move_down(parent_h, parent_board, curr_board, z_coord, pq, visited):
-    """
-    :param visited:
-    :param pq:
-    :param parent_h: Holds the parent heuristic value
-    :param parent_board: Holds the parent board
-    :param curr_board: Holds the current child board being evaluate
-    :param z_coord: Holds the coordiantes of where the blank position is
-    :return:
-    """
-
     if z_coord[0] + 1 < EDGE_LENGTH:
         tmp = curr_board[z_coord[0] + 1][z_coord[1]]
         curr_board[z_coord[0] + 1][z_coord[1]] = curr_board[z_coord[0]][z_coord[1]]
@@ -54,16 +44,6 @@ def move_down(parent_h, parent_board, curr_board, z_coord, pq, visited):
 
 
 def move_left(parent_h, parent_board, curr_board, z_coord, pq, visited):
-    """
-    :param visited:
-    :param pq:
-    :param parent_h: Holds the parent heuristic value
-    :param parent_board: Holds the parent board
-    :param curr_board: Holds the current child board being evaluate
-    :param z_coord: Holds the coordiantes of where the blank position is
-    :return:
-    """
-
     if z_coord[1] - 1 >= 0:
 
         tmp = curr_board[z_coord[0]][z_coord[1] - 1]
@@ -77,16 +57,6 @@ def move_left(parent_h, parent_board, curr_board, z_coord, pq, visited):
 
 
 def move_right(parent_h, parent_board, curr_board, z_coord, pq, visited):
-    """
-    :param visited:
-    :param pq:
-    :param parent_h: Holds the parent heuristic value
-    :param parent_board: Holds the parent board
-    :param curr_board: Holds the current child board being evaluate
-    :param z_coord: Holds the coordiantes of where the blank position is
-    :return:
-    """
-
     if z_coord[1] + 1 < EDGE_LENGTH:
 
         tmp = curr_board[z_coord[0]][z_coord[1] + 1]
@@ -100,14 +70,6 @@ def move_right(parent_h, parent_board, curr_board, z_coord, pq, visited):
 
 
 def check_hp(b, parent, ph, pq, visited):
-    """
-    :param visited:
-    :param pq:
-    :param b: Board object (child board being evaluated
-    :param parent: Parent board as a string
-    :param ph: Parent heuristic value
-    :return: Nothing
-    """
     global HEURISTIC
 
     if HEURISTIC == 'M':
@@ -119,7 +81,6 @@ def check_hp(b, parent, ph, pq, visited):
     if child not in visited.keys():
         heappush(pq, (h, b.board_as_string_list))
         visited[child] = [h, h + ph, parent]
-
     elif child in visited:
         if h + visited[parent][1] < visited[child][1]:
             visited[child][1] = h + visited[parent][1]

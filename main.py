@@ -164,9 +164,11 @@ def main():
     print("Memory used just before returning in BFS Manhattan A* search:     | ", globals.memory_manhattan_astar, ' MB')
     print("Memory used just before returning in BFS Displaced A* search:     | ", globals.memory_displaced_astar, ' MB')
     print('------------')
-    print('Note: Using the TAs suggestion on memory usage doesn\'t really demonstrate a good way when using A*')
+    print('Note: Using the TAs suggestion on memory usage doesn\'t show bytes after search complete when using A*')
     print('I have printed out the sizeof (using getsizeof) of the hashmap for each heuristic. Scroll up to see result.')
     print('You will find that the manhattan heuristic visits less nodes (less bytes printed)')
+    print('Remarks: bfs uses more memory than iddfs (recursive and non-recursive)')
+    print('Manhattan Heuristic is better than displaced heuristic when it comes to time elapsed.')
 
 
 if __name__ == "__main__":
