@@ -47,8 +47,8 @@ If a "difficult" board is passed in, none of these search algorithms will work. 
 The solution to this would be to use A-Star and create subsets of the Puzzle Board and break up the board into smaller components to have "smaller" goal states. This will fix this memory usage issue/limitations. As of right now, the A-Star Manhattan Heuristic program used for this project can complete 99% of all board states. The fix can be easily be achievable once I have more time to work on it :)
 
 ## TODOs:
-Handle the case explained in the limitations
-Use a mathematical technique of inversions to determine *immediately* if a board is solvable or not.
+* Handle the case explained in the limitations. </br>
+* Use a mathematical technique of inversions to determine *immediately* if a board is solvable or not. </br>
 
 __*Output Example:*__
 
