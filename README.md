@@ -36,7 +36,7 @@ __constants.py:__ A constants file that holds all the constants that is used thr
 
 __globals.py:__ A globals file essentially to hold the global variables for memory usage and comparisons.
 
-__iddfs.py:__ Iterative Deepending Depth First Search file that attempts to find the goal state using IDDFS both iteratively and recurisvely.
+__iddfs.py:__ Iterative Deepening Depth First Search file that attempts to find the goal state using IDDFS both iteratively and recurisvely.
 
 __main.py:__ The main driver of the program.
 
