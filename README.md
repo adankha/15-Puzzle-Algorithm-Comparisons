@@ -1,6 +1,15 @@
 # 15_Puzzle_Multiple_Search_Algorithms
 
 ## Introduction:
+
+Example:
+
+Start State (Random Board):
+![alt text](https://i.imgur.com/4Vriihw.png)
+
+Goal State (Always same goal):
+![alt text](https://i.imgur.com/Zn0DIbr.png)
+
 The following program solves the the N-Puzzle Board Game problem using multiple search techniques.
 Once the program has finished executing, the memory and time complexity is printed for comparison.
 A-Star with a heuristic produced the best results.
