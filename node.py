@@ -1,4 +1,6 @@
-# Not used until later projects =)
+"""
+The following node class holds certain information of the board state(s) for each algorithm.
+"""
 
 
 class Node:

@@ -1,9 +1,9 @@
 """
 Name: Ashour Dankha
-NetiD: Adankh2
 Class: CS 412- AI 1
 Term: Fall 2017
 """
+
 from __future__ import print_function
 from iddfs import iddfs, nr_iddfs
 from random import shuffle
@@ -42,7 +42,7 @@ def check_input(user_input):
     if user_input == 'r' or user_input == 'R':
         return True
 
-    check_against = GOAL_STATE_15.split(" ")
+    check_against = GOAL_STATE_15_AS_SLIST
     user_input = user_input.split(" ")
 
     if len(user_input) != 16:
@@ -58,7 +58,7 @@ def randomize_board ():
     :return: USERS_BOARD is the board used to begin the program, shuffles board is user presses 'r'
     """
 
-    users_board = GOAL_STATE_15.split(" ")
+    users_board = GOAL_STATE_15_AS_SLIST
     return shuffle(users_board)
 
 
@@ -105,8 +105,6 @@ def main():
         exit(0)
 
     print('Time to solve your Puzzle using DFS.\n\n')
-
-    globals.init_globals()
 
     process = psutil.Process(os.getpid())
     memory = process.memory_info().rss

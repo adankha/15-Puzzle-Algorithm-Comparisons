@@ -1,3 +1,8 @@
+"""
+The following python file works with iterative deepening depth first search algorithm.
+"""
+
+
 import os
 import time
 import psutil

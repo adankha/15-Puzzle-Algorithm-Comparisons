@@ -26,7 +26,7 @@ def move_up(parent_h, parent_board, curr_board, z_coord, pq, visited):
         curr_board[z_coord[0]][z_coord[1]] = tmp
         cb_as_list = transform_to_string_list(curr_board)
 
-        check_hp(Board(cb_as_list),
+        check_hm(Board(cb_as_list),
                  ' '.join(str(num) for row in parent_board for num in row),
                  parent_h, pq, visited)
 
@@ -38,7 +38,7 @@ def move_down(parent_h, parent_board, curr_board, z_coord, pq, visited):
         curr_board[z_coord[0]][z_coord[1]] = tmp
         cb_as_list = transform_to_string_list(curr_board)
 
-        check_hp(Board(cb_as_list),
+        check_hm(Board(cb_as_list),
                  ' '.join(str(num) for row in parent_board for num in row),
                  parent_h, pq, visited)
 
@@ -51,7 +51,7 @@ def move_left(parent_h, parent_board, curr_board, z_coord, pq, visited):
         curr_board[z_coord[0]][z_coord[1]] = tmp
         cb_as_list = transform_to_string_list(curr_board)
 
-        check_hp(Board(cb_as_list),
+        check_hm(Board(cb_as_list),
                  ' '.join(str(num) for row in parent_board for num in row),
                  parent_h, pq, visited)
 
@@ -64,13 +64,12 @@ def move_right(parent_h, parent_board, curr_board, z_coord, pq, visited):
         curr_board[z_coord[0]][z_coord[1]] = tmp
         cb_as_list = transform_to_string_list(curr_board)
 
-        check_hp(Board(cb_as_list),
+        check_hm(Board(cb_as_list),
                  ' '.join(str(num) for row in parent_board for num in row),
                  parent_h, pq, visited)
 
 
-def check_hp(b, parent, ph, pq, visited):
-    global HEURISTIC
+def check_hm(b, parent, ph, pq, visited):
 
     if HEURISTIC == 'M':
         h = b.manhattan_heuristic()
@@ -88,7 +87,6 @@ def check_hp(b, parent, ph, pq, visited):
 
 
 def get_path(board, visited):
-    global HEURISTIC
 
     if board == 'NULL':
         return
@@ -115,12 +113,13 @@ def a_star(start_board, heuristic):
     global HEURISTIC
 
     HEURISTIC = heuristic
-
     b = Board(start_board)
+
     if HEURISTIC == 'M':
         h = b.manhattan_heuristic()
     else:
         h = b.displaced_tiles_heuristic()
+
     cb_as_list = b.board_as_string_list
     visited[' '.join(str(e) for e in cb_as_list)] = [h, h, 'NULL']
 
@@ -154,7 +153,6 @@ def a_star(start_board, heuristic):
             process = psutil.Process(os.getpid())
             memory = process.memory_info().rss
             memory_bfs = memory / 1000000
-
             globals.memory_bfs = memory_bfs
 
             print('*** Heuristic Values are printed for each state.    ***'

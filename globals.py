@@ -1,17 +1,12 @@
-def init_globals():
+"""
+Variables used for memory comparison
+HEURISTIC is used to determine which heuristic to use: Manhattan Distance or Misplaced Tiles
+"""
 
-    global memory_main
-    global memory_bfs
-    global memory_iddfs
-    global memory_nr_iddfs
-    global memory_manhattan_astar
-    global memory_displaced_astar
-    global HEURISTIC
-
-    memory_main = 0
-    memory_bfs = 0
-    memory_iddfs = 0
-    memory_nr_iddfs = 0
-    memory_manhattan_astar = 0
-    memory_displaced_astar = 0
-    HEURISTIC = ''
+memory_main = 0
+memory_bfs = 0
+memory_iddfs = 0
+memory_nr_iddfs = 0
+memory_manhattan_astar = 0
+memory_displaced_astar = 0
+HEURISTIC = ''
