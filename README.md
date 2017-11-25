@@ -2,12 +2,14 @@
 
 ## Introduction:
 
-Example:
+*Example:*
 
-Start State (Random Board):
+*Start State (Random Board):*
+
 ![alt text](https://i.imgur.com/4Vriihw.png)
 
-Goal State (Always same goal):
+*Goal State (Always same goal):*
+
 ![alt text](https://i.imgur.com/Zn0DIbr.png)
 
 The following program solves the the N-Puzzle Board Game problem using multiple search techniques.
