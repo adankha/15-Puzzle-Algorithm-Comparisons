@@ -8,7 +8,7 @@ Each search-file contained in this repository is a stand-alone.
 The program was created using Python 3.6
 
 ## Files:
-** Note: A Hashmap is used for all the search algorithms to avoid visiting already visited states. **
+*__Note: A Hashmap is used for all the search algorithms to avoid visiting already visited states.__*
 
 __a_star.py:__ A standalone file that uses the A-Star Search Algorithm. The heuristics used for the algorithm are Manhattan Distance and Number of Displaced Tiles.
 
