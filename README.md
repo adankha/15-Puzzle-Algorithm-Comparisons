@@ -28,7 +28,7 @@ __node.py:__ A node class that holds the current board, the parent board (where 
 
 ## Limitations:
 If a "difficult" board is passed in, none of these search algorithms will work. They will timeout after 15 seconds due to using up all the memory.
-The solution to this would be to use A-Star and create subsets of the Puzzle Board and break up the board into smaller components and have "smaller" goal states to fix this issue. This can easily be achievable once I have more time to work on it :)
+The solution to this would be to use A-Star and create subsets of the Puzzle Board and break up the board into smaller components to have "smaller" goal states. This will fix this memory usage issue/limitations. This can easily be achievable once I have more time to work on it :)
 
 __*Output Example:*__
 
