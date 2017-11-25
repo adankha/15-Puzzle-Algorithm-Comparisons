@@ -1,6 +1,6 @@
 """
-Variables used for memory comparison
-HEURISTIC is used to determine which heuristic to use: Manhattan Distance or Misplaced Tiles
+Variables used for memory comparison.
+HEURISTIC is used to determine which heuristic to use: Manhattan Distance or Misplaced Tiles.
 """
 
 memory_main = 0

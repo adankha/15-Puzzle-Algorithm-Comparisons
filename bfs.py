@@ -1,3 +1,7 @@
+"""
+Breadth First Search approach to finding the goal state of the puzzle.
+"""
+
 from copy import copy, deepcopy
 from sys import getsizeof
 from board import *

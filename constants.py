@@ -1,5 +1,5 @@
 """
-Constants file that holds all the constants for the board game.
+Constants file that holds all the constants for the board game..
 """
 
 PUZZLE_SIZE = 15

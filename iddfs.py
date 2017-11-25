@@ -1,5 +1,5 @@
 """
-The following python file works with iterative deepening depth first search algorithm.
+The following python file works with iterative deepening depth first search algorithm..
 """
 
 

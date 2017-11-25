@@ -1,3 +1,7 @@
+"""
+A-Star Algorithm using the Manhattan Heuristic and the Displaced Tiles (BFS Approach)
+"""
+
 from copy import deepcopy
 from sys import getsizeof
 from board import *

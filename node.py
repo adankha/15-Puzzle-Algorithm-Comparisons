@@ -1,5 +1,5 @@
 """
-The following node class holds certain information of the board state(s) for each algorithm.
+The following node class holds certain information of the board state(s) for each algorithm..
 """
 
 

@@ -1,7 +1,8 @@
 """
-Name: Ashour Dankha
-Class: CS 412- AI 1
-Term: Fall 2017
+Created by: Ashour Dankha
+
+main.py is the driver program that prompts the user for a board state (or press r to randomize).
+It will then solve the board (if it was correctly inputted) using all the search algorithms implemented.
 """
 
 from __future__ import print_function

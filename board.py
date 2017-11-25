@@ -1,5 +1,5 @@
 """
-Board class to hold the contents of the game/board.
+Board class to hold the contents of the game/board..
 """
 
 from constants import *
