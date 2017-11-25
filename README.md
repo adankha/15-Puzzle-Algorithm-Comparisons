@@ -2,7 +2,9 @@
 
 ## Introduction:
 
-*Example:*
+The 15-Puzzle (or N-Puzzle, Gem_puzzle, Game of Fifteen, Mytic Square, etc.) is a sliding puzzle that consists of a square (sqrt(N+1) x sqrt(N+1)) frame with numbers labeled 1-N in random order leaving 1 empty slot with no label/number. The goal is to slide the numbers so that they are in order of 1, 2, 3, ..., N.
+
+*Example: A 15-Puzzle (4x4 Board)*
 
 *Start State (Random Board):*
 
