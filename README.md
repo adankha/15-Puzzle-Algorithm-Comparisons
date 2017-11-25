@@ -31,7 +31,7 @@ Iterative Deepending Depth First Search file that attempts to find the goal stat
 ###### main.py:
 The main driver of the program.
 
-####### node.py:
+###### node.py:
 A node class that holds the current board, the parent board (where it came from), the heuristic value of the board, and the total cost to get to that board.
 
 ## Limitations:
