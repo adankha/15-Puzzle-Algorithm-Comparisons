@@ -19,7 +19,7 @@ The 15-Puzzle (or N-Puzzle, Gem_puzzle, Game of Fifteen, Mytic Square, etc.) is 
 The following program solves the the N-Puzzle Board Game problem using multiple search techniques. </br>
 The following searches were used: BFS, DFS, IDDFS, A-Star. </br>
 Once the program has finished executing, the memory and time complexity is printed for each search for comparison. </br>
-A-Star with the Manhattan Heuristic produced the best results. </br>
+__A-Star with the Manhattan Heuristic produced the best results.__ </br>
 Each __search__-file depends on constants.py, globals.py, board.py, main.py. </br> 
 The program was created using Python 3.6 </br>
 
